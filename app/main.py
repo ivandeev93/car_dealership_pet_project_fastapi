@@ -2,12 +2,19 @@ from fastapi import FastAPI
 from app.routers import brands, cars, users
 from fastapi.staticfiles import StaticFiles
 
+from app.routers import brands, cars, users
+
 
 # Создаём приложение FastAPI
 app = FastAPI(
     title="FastAPI Автосалон",
     version="0.1.0",
-    summary="App for car dealership"
+    summary="App for car dealership",
+    contact={
+    "name": "Иван Деев",
+    "url": "https://example.com",
+    "email": "deev-93-ivan@mail.ru"
+}
 )
 
 # Подключение маршрутов

@@ -94,7 +94,7 @@ async def get_all_cars(
     total_stmt = select(func.count()).select_from(CarModel).where(*filters)
 
     # Поиск по названию/описанию
-    rank_col = None  ################
+    rank_col = None
     if search:
         search_value = search.strip()
         if search_value:
@@ -107,7 +107,7 @@ async def get_all_cars(
     total = await db.scalar(total_stmt) or 0
 
     # Основной запрос (если есть поиск — добавим ранг в выборку и сортировку)
-    if rank_col is not None:    ###################
+    if rank_col is not None:
         cars_stmt = (
             select(CarModel, rank_col)
             .where(*filters)
@@ -117,9 +117,8 @@ async def get_all_cars(
         )
         result = await db.execute(cars_stmt)
         rows = result.all()
-        items = [row[0] for row in rows]    # сами объекты
-        # при желании можно вернуть ранг в ответе
-        # ranks = [row.rank for row in rows]
+        items = [row[0] for row in rows]
+
     else:
         cars_stmt = (
             select(CarModel)

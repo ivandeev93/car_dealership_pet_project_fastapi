@@ -18,7 +18,7 @@ router = APIRouter(prefix="/users", tags=["users"])
 @router.post("/", response_model=UserSchema, status_code=status.HTTP_201_CREATED)
 async def create_user(user: UserCreate, db: AsyncSession = Depends(get_async_db)):
     """
-    Регистрирует нового пользователя с ролью 'buyer' или 'seller'.
+    Регистрирует нового пользователя с ролью 'buyer'.
     """
 
     # Проверка уникальности email

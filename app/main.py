@@ -2,8 +2,6 @@ from fastapi import FastAPI
 from app.routers import brands, cars, users
 from fastapi.staticfiles import StaticFiles
 
-from app.routers import brands, cars, users
-
 
 # Создаём приложение FastAPI
 app = FastAPI(

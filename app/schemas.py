@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from decimal import Decimal
-from datetime import datetime
 from typing import Optional, Annotated
 
 from fastapi import Form
